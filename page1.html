@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khawaja Anas Javed | Data Science Student</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<main class="container">
+  <section class="hero center">
+      <img src="profile.jpg" class="profile" alt="Khawaja Anas Javed">
+      <h1>Khawaja Anas Javed</h1>
+      <p class="tag">Data Science Undergraduate • Developer</p>
+      <p class="intro">
+        Data Science student at Pak-Austria Fachhochschule passionate about programming,
+        problem solving, and building a strong technical foundation.
+      </p>
+
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/hellofromanas" target="_blank">LinkedIn</a>
+        <a href="https://github.com/hellofromanas" target="_blank">GitHub</a>
+      </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="card">
+      <h3>BS Data Science (In Progress)</h3>
+      <p>Pak-Austria Fachhochschule</p>
+    </div>
+    <div class="card">
+      <h3>FSc (Pre-Engineering)</h3>
+      <p>Abbottabad Public School & College</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <span>C++</span>
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>Power BI</span>
+      <span>Canva</span>
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="card">
+      <form id="contact-form" action="https://formspree.io/f/xzdarboq" method="POST">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn">Send Message</button>
+        <div id="form-status"></div>
+      </form>
+    </div>
+    
+    <p class="alt-contact">Or email me directly at: <a href="mailto:your-email@example.com">hello@anasjaved.com</a></p>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
