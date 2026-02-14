@@ -40,6 +40,6 @@ I am preparing for:
 ---
 
 ## 📫 Connect With Me
-Email: your@email.com  
-LinkedIn: (add when ready)
+Email: hellowfromanas@email.com  
+LinkedIn: https://www.linkedin.com/in/hellofromanas/
 
