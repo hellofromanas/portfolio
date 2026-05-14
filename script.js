@@ -5,15 +5,14 @@ function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
-
 window.addEventListener("resize", resize);
 resize();
 
-const nodes = Array.from({ length: 80 }, () => ({
+const nodes = Array.from({ length: 85 }, () => ({
   x: Math.random() * canvas.width,
   y: Math.random() * canvas.height,
-  vx: (Math.random() - 0.5) * 0.4,
-  vy: (Math.random() - 0.5) * 0.4
+  vx: (Math.random() - 0.5) * 0.5,
+  vy: (Math.random() - 0.5) * 0.5
 }));
 
 function draw() {
@@ -28,7 +27,7 @@ function draw() {
 
     ctx.beginPath();
     ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "rgba(14, 165, 233, 0.4)";
     ctx.fill();
   });
 
@@ -38,61 +37,18 @@ function draw() {
       const dy = nodes[i].y - nodes[j].y;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      if (dist < 120) {
+      if (dist < 150) {
         ctx.beginPath();
         ctx.moveTo(nodes[i].x, nodes[i].y);
         ctx.lineTo(nodes[j].x, nodes[j].y);
-        ctx.strokeStyle = `rgba(56, 189, 248, ${1 - dist / 120})`; // Fades line out with distance
-        ctx.lineWidth = 0.5;
+        ctx.strokeStyle = `rgba(14, 165, 233, ${0.15 - dist / 150})`; 
+        ctx.lineWidth = 0.8;
         ctx.stroke();
       }
     }
   }
   requestAnimationFrame(draw);
 }
-
 draw();
-const form = document.getElementById("contact-form");
-const status = document.getElementById("form-status");
-const btn = document.getElementById("submit-btn");
 
-async function handleSubmit(event) {
-  event.preventDefault();
-  btn.disabled = true;
-  btn.innerHTML = "Sending...";
-  
-  const data = new FormData(event.target);
-  
-  fetch(event.target.action, {
-    method: form.method,
-    body: data,
-    headers: {
-        'Accept': 'application/json'
-    }
-  }).then(response => {
-    if (response.ok) {
-      status.innerHTML = "Thanks! Your message has been sent.";
-      status.className = "success";
-      form.reset();
-      btn.innerHTML = "Message Sent!";
-    } else {
-      response.json().then(data => {
-        if (Object.hasOwn(data, 'errors')) {
-          status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-        } else {
-          status.innerHTML = "Oops! There was a problem submitting your form";
-        }
-        status.className = "error";
-        btn.disabled = false;
-        btn.innerHTML = "Send Message";
-      })
-    }
-  }).catch(error => {
-    status.innerHTML = "Oops! There was a problem submitting your form";
-    status.className = "error";
-    btn.disabled = false;
-    btn.innerHTML = "Send Message";
-  });
-}
-
-form.addEventListener("submit", handleSubmit);
+// Keep your handleSubmit function here as it was!
