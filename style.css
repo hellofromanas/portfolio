@@ -154,13 +154,13 @@ h1 {
 }
 
 .button.solid {
-  background: var(--accent);
+  background: #6366f1;
   color: white;
 }
 
 .button.outline {
-  border: 1px solid var(--accent);
-  color: var(--accent);
+  border: 1px solid #6366f1;
+  color: #6366f1;
   background: transparent;
 }
 
@@ -340,14 +340,14 @@ h1 {
   width: fit-content;
   min-width: 180px;
   padding: 14px 24px;
-  background: var(--accent);
+  background: #6366f1;
   color: white;
   border-radius: 999px;
   font-weight: 600;
 }
 
 #submit-btn:hover {
-  background: #38bdf8;
+  background: #4f46e5;
 }
 
 .status {
