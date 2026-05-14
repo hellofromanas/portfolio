@@ -1,55 +1,104 @@
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+:root {
+  --bg-color: #f8fafc;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --accent: #0ea5e9; /* Sky Blue */
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --border: #e2e8f0;
 }
-window.addEventListener("resize", resize);
-resize();
 
-// Using slightly more nodes for a denser "data" look
-const nodes = Array.from({ length: 90 }, () => ({
-  x: Math.random() * canvas.width,
-  y: Math.random() * canvas.height,
-  vx: (Math.random() - 0.5) * 0.5,
-  vy: (Math.random() - 0.5) * 0.5
-}));
-
-function draw() {
-  // Light theme background color
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  nodes.forEach(n => {
-    n.x += n.vx;
-    n.y += n.vy;
-
-    if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
-    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
-
-    ctx.beginPath();
-    ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(14, 165, 233, 0.4)"; // Deep Blue with transparency
-    ctx.fill();
-  });
-
-  for (let i = 0; i < nodes.length; i++) {
-    for (let j = i + 1; j < nodes.length; j++) {
-      const dx = nodes[i].x - nodes[j].x;
-      const dy = nodes[i].y - nodes[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < 150) {
-        ctx.beginPath();
-        ctx.moveTo(nodes[i].x, nodes[i].y);
-        ctx.lineTo(nodes[j].x, nodes[j].y);
-        // Thin lines that look like a data mesh
-        ctx.strokeStyle = `rgba(14, 165, 233, ${0.2 - dist / 150})`; 
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(draw);
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.6;
 }
-draw();
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(248, 250, 252, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 0 20px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--accent);
+}
+
+/* Layout */
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.hero { text-align: center; padding: 40px 0; }
+
+.profile {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.2);
+  margin-bottom: 20px;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text-main); }
+
+.tag { color: var(--accent); font-weight: 600; letter-spacing: 1px; }
+
+/* Enhanced Cards */
+.card {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.skills span {
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: white;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Form Styles */
+input, textarea {
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+#submit-btn {
+  background: var(--accent);
+  color: white;
+}
