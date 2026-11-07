@@ -32,12 +32,13 @@ window.PORTFOLIO = {
     { name: "Canva", icon: "🎨", group: "Tools", note: "Visual design" }
   ],
   projects: [
+    { name: "Bilal Sports", tag: "Client website · HTML/CSS/JS", desc: "Storefront website for a sports gear and sportswear shop in Havelian, deployed on Vercel.", link: "https://github.com/hellofromanas/Bilal-Sports", live: "https://bilalsports.vercel.app/" },
     { name: "Dr. Khalil Aesthetic Clinic", tag: "Client website · HTML/CSS/JS", desc: "Website built for an aesthetic clinic, deployed on Vercel.", link: "https://github.com/hellofromanas/khalil-ahmed", live: "https://khalilaesthetics.vercel.app/" },
     { name: "Noor Al Hidayah Quran Academy", tag: "Client website · HTML/CSS/JS", desc: "Website for an online Quran academy, deployed on Netlify.", link: "https://github.com/hellofromanas/noor-al-hidayah", live: "https://noor-al-hidayah.netlify.app/" },
     { name: "C++ Student Management System", tag: "C++ · OOP", desc: "Structured CLI application for managing student records, grades and simple analytics.", link: "https://github.com/hellofromanas" },
   ],
   experience: [
-    { period: "2025 – Present", role: "Freelance Web Developer", org: "Client Projects", desc: "Designed, built and deployed responsive websites: Dr. Khalil Aesthetic Clinic (khalilaesthetics.vercel.app) and Noor Al Hidayah Quran Academy (noor-al-hidayah.netlify.app)." },
+    { period: "2025 – Present", role: "Freelance Web Developer", org: "Client Projects", desc: "Designed, built and deployed responsive websites: Dr. Khalil Aesthetic Clinic (khalilaesthetics.vercel.app), Bilal Sports (bilalsports.vercel.app) and Noor Al Hidayah Quran Academy (noor-al-hidayah.netlify.app)." },
     { period: "2024 – Present", role: "Team Member — Registration & Security", org: "PAMUN", desc: "Managed delegate registration workflows, verified participant credentials and coordinated on-site security for the Pak-Austria Model United Nations." },
     { period: "2023 – 2024", role: "Team Member — Registrations", org: "IEEE", desc: "Facilitated member onboarding, managed participant databases and supported workshops and campus events." }
   ],
