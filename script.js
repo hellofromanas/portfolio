@@ -77,6 +77,7 @@
         ctx.beginPath(); ctx.arc(n.px, n.py, d < 140 ? 3.5 : 2, 0, 6.283);
         ctx.fillStyle = d < 140 ? 'rgba(167,139,250,.95)' : 'rgba(34,211,238,.6)'; ctx.fill();
       });
+      nodes.forEach((n) => { const d = Math.hypot(n.px - ptr.x, n.py - ptr.y); if (d < 170) { ctx.strokeStyle = `rgba(167,139,250,${(1 - d / 170) * 0.6})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(ptr.x, ptr.y); ctx.lineTo(n.px, n.py); ctx.stroke(); } });
       for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) {
         const a = nodes[i], b = nodes[j], d = Math.hypot(a.px - b.px, a.py - b.py);
         if (d < 140) {
