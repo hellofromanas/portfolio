@@ -1,6 +1,6 @@
 (() => {
   const D = window.PORTFOLIO;
-  const $ = (id) => document.getElementById(id);
+  const $ = (id) => document.getElementById(id) || document.createElement('div'); // detached dummy when absent on this page
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -37,7 +37,7 @@
 
   /* ---------- Typing effect ---------- */
   (function typer() {
-    const t = $('typed'); let r = 0, c = 0, del = false;
+    const t = $('typed'); let r = 0, c = 0, del = false; if (!t.isConnected) return;
     if (reduceMotion) { t.textContent = D.roles[0]; return; }
     (function tick() {
       const w = D.roles[r];
@@ -51,6 +51,7 @@
 
   /* ---------- Helper: run animation only while visible ---------- */
   function animate(canvas, draw) {
+    if (!canvas.isConnected) return;
     const ctx = canvas.getContext('2d'); let vis = false, t = 0;
     new IntersectionObserver((e) => { vis = e[0].isIntersecting; }, { threshold: 0.1 }).observe(canvas);
     (function frame() { if (vis || reduceMotion && t === 0) { t++; draw(ctx, canvas.width, canvas.height, t); } requestAnimationFrame(frame); })();
@@ -182,7 +183,7 @@
 
   /* ---------- Animated terminal (Ollama / Python) ---------- */
   (function term() {
-    const t = $('term');
+    const t = $('term'); if (!t.isConnected) return;
     const script = [
       ['<span class="p">$</span> ollama run llama3 ', 700], ['\n<span class="q">>>> </span>Explain RAG in one line.\n', 900],
       ['RAG retrieves relevant documents and feeds them to an LLM so answers stay grounded in your data.\n\n', 700],
