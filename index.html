@@ -1,205 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Khawaja Anas Javed | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khawaja Anas Javed | Data Science & AI Portfolio</title>
+  <meta name="theme-color" content="#060b17">
+  <meta name="description" content="Portfolio of Khawaja Anas Javed — Data Science student working with Python, C++, Power BI, RAG, Ollama and Claude Code.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="scanline" aria-hidden="true"></div>
 
-  <!-- Navigation Bar -->
-  <nav class="nav">
-    <div class="nav-container">
-      <a href="#home" class="nav-brand">Anas Javed</a>
-      <div class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="btn btn-primary">Contact</a>
-      </div>
+  <nav class="navbar">
+    <a href="#home" class="brand">&lt;anas<span>/</span>&gt;</a>
+    <button class="menu-btn" id="menu-btn" aria-label="Toggle menu">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#ai-lab">AI Lab</a>
+      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+      <button class="btn small" id="cv-btn-nav">⬇ CV</button>
     </div>
   </nav>
 
+  <header id="home" class="hero">
+    <div class="hero-copy">
+      <p class="mono kicker"><span class="dot"></span> model.status = "learning & building"</p>
+      <h1>Hi, I'm <span class="grad" id="h-name"></span></h1>
+      <h2 class="typed-line"><span id="typed"></span><span class="caret">|</span></h2>
+      <p class="lead" id="h-summary"></p>
+      <div class="actions">
+        <button class="btn" id="cv-btn">⬇ Download Latest CV</button>
+        <a class="btn ghost" href="#contact">Contact Me</a>
+      </div>
+      <div class="socials" id="socials"></div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-wrap">
+        <div class="ring r1"></div><div class="ring r2"></div>
+        <img src="profile.jpeg" alt="Khawaja Anas Javed" class="avatar" width="220" height="220" fetchpriority="high">
+      </div>
+      <div class="floaters" aria-hidden="true">
+        <span class="chip c1">Python</span><span class="chip c2">C++</span><span class="chip c3">RAG</span>
+        <span class="chip c4">Ollama</span><span class="chip c5">Power BI</span>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <!-- PAGE 1: HOME -->
-    <section id="home" class="page-view active">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <span class="kicker">Abbottabad, Pakistan</span>
-          <h1 class="hero-title">Khawaja Anas Javed</h1>
-          <p class="hero-subtitle">Data Science Student &amp; Aspiring AI/Data Analyst</p>
-          <p class="hero-bio">
-            Currently pursuing a Bachelor of Data Science at Pak-Austria Fachhochschule IAST, building a foundation in programming, statistics and data visualization &mdash; with a focus on data science, AI, and remote tech careers.
-          </p>
-          <div class="btn-group">
-            <a href="mailto:hellowfromanas@gmail.com" class="btn btn-primary">Get in touch</a>
-            <a href="https://github.com/hellofromanas" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
-            <a href="https://linkedin.com/in/hellofromanas" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn</a>
-          </div>
-        </div>
-
-        <!-- ========================================== -->
-        <!-- PROFILE PICTURE SECTION                    -->
-        <!-- Replace the placeholder or update src      -->
-        <!-- ========================================== -->
-        <div class="profile-frame reveal">
-          <!-- PLACE YOUR PICTURE HERE: -->
-          <img src="profile.jpeg" alt="Khawaja Anas Javed" />
-        </div>
-        <!-- ========================================== -->
-
-      </div>
-
-      <!-- Contact Ribbon -->
-      <section id="contact" class="contact-section">
-        <div class="container">
-          <span class="kicker kicker-light">Contact</span>
-          <h2 class="section-heading">Open to remote roles &amp; collaboration in data and tech.</h2>
-          <p class="contact-desc">Reach out by email, or connect on GitHub and LinkedIn.</p>
-          <!-- Formspree Contact Form -->
-<form action="https://formspree.io/f/moeayrew" method="POST" class="contact-form">
-  <div class="form-group">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required />
-  </div>
-
-  <div class="form-group">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" id="email" name="_replyto" class="form-input" placeholder="your.email@example.com" required />
-  </div>
-
-  <div class="form-group">
-    <label for="subject" class="form-label">Subject</label>
-    <input type="text" id="subject" name="subject" class="form-input" placeholder="Collaboration / Inquiries" />
-  </div>
-
-  <div class="form-group">
-    <label for="message" class="form-label">Message</label>
-    <textarea id="message" name="message" rows="5" class="form-input" placeholder="Write your message here..." required></textarea>
-  </div>
-
-  <button type="submit" class="btn btn-primary form-btn">Send Message</button>
-</form>
-          <div class="btn-group">
-            <a href="mailto:hellowfromanas@gmail.com" class="btn btn-primary">hellowfromanas@gmail.com</a>
-            <a href="https://github.com/hellofromanas" target="_blank" rel="noopener" class="btn btn-secondary">github.com/hellofromanas</a>
-            <a href="https://linkedin.com/in/hellofromanas" target="_blank" rel="noopener" class="btn btn-secondary">linkedin.com/in/hellofromanas</a>
-          </div>
-        </div>
-      </section>
+    <section id="about" class="section reveal">
+      <h2 class="sec-title"><span class="mono">01.</span> About & Education</h2>
+      <p class="about-text" id="about-text"></p>
+      <div class="timeline" id="education"></div>
     </section>
 
-    <!-- PAGE 2: ABOUT -->
-    <section id="about" class="page-view">
-      <div class="container content-wrapper">
-        <span class="kicker">About</span>
-        <h1 class="page-title">A student building toward a career in data.</h1>
-        <div class="prose">
-          <p>Anas is a Pakistani student based in Abbottabad, currently in his third semester of a Bachelor of Data Science degree at Pak-Austria Fachhochschule IAST. His academic path &mdash; from Pre-Engineering through to Data Science &mdash; has built a steady grounding in mathematics, statistics and programming.</p>
-          <p>Beyond coursework, he has taken on operational roles at student-run events like PAMUN and IEEE, gaining first-hand experience in coordination, credentialing and participant support.</p>
-          <p>For 2026, his focus is building a C++ project portfolio, mastering data structures, starting data analysis and visualization work, and contributing to open-source &mdash; all in service of a career in data science, AI, and remote tech.</p>
-        </div>
+    <section id="skills" class="section reveal">
+      <h2 class="sec-title"><span class="mono">02.</span> Skills</h2>
+      <div class="skill-grid" id="skill-grid"></div>
+    </section>
+
+    <section id="ai-lab" class="section reveal">
+      <h2 class="sec-title"><span class="mono">03.</span> AI &amp; Data Lab <small>live animations</small></h2>
+      <div class="lab-grid">
+        <article class="panel">
+          <header><span class="mono">neural_net.forward()</span><i class="pulse"></i></header>
+          <canvas id="nn-canvas" width="520" height="300"></canvas>
+          <p class="cap">A feed-forward network: signals flow input → hidden → output.</p>
+        </article>
+        <article class="panel">
+          <header><span class="mono">train.py — loss curve</span><i class="pulse"></i></header>
+          <canvas id="loss-canvas" width="520" height="300"></canvas>
+          <p class="cap">Gradient descent: loss falls as epochs progress.</p>
+        </article>
+        <article class="panel">
+          <header><span class="mono">dashboard.pbix</span><i class="pulse"></i></header>
+          <canvas id="chart-canvas" width="520" height="300"></canvas>
+          <p class="cap">Streaming data visualized like a Power BI dashboard.</p>
+        </article>
+        <article class="panel">
+          <header><span class="mono">rag_pipeline.py</span><i class="pulse"></i></header>
+          <canvas id="rag-canvas" width="520" height="300"></canvas>
+          <p class="cap">RAG: Query → Embed → Vector search → LLM (Ollama) → Answer.</p>
+        </article>
+        <article class="panel wide">
+          <header><span class="mono">~/ollama — terminal</span><i class="pulse"></i></header>
+          <pre class="term" id="term" aria-label="Animated terminal"></pre>
+        </article>
       </div>
     </section>
 
-    <!-- PAGE 3: SKILLS -->
-    <section id="skills" class="page-view">
-      <div class="container content-wrapper">
-        <span class="kicker">Skills &amp; Expertise</span>
-        <h1 class="page-title">Tools of the trade.</h1>
-        <div class="grid-cards">
-          <div class="card">
-            <span class="card-kicker">Programming</span>
-            <div class="tag-group">
-              <span class="tag tag-accent">C++</span>
-              <span class="tag tag-accent">Python</span>
-              <span class="tag tag-accent">JavaScript</span>
-            </div>
-          </div>
-          <div class="card">
-            <span class="card-kicker">Web</span>
-            <div class="tag-group">
-              <span class="tag tag-neutral">HTML</span>
-              <span class="tag tag-neutral">CSS</span>
-            </div>
-          </div>
-          <div class="card">
-            <span class="card-kicker">Tools</span>
-            <div class="tag-group">
-              <span class="tag tag-neutral">Microsoft Office</span>
-              <span class="tag tag-neutral">Power BI</span>
-              <span class="tag tag-neutral">Canva</span>
-              <span class="tag tag-neutral">Ollama</span>
-              <span class="tag tag-neutral">Git/GitHub</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section id="projects" class="section reveal">
+      <h2 class="sec-title"><span class="mono">04.</span> Projects</h2>
+      <div class="cards" id="projects-list"></div>
     </section>
 
-    <!-- PAGE 4: EXPERIENCE -->
-    <section id="experience" class="page-view">
-      <div class="container content-wrapper">
-        <span class="kicker">Experience &amp; Leadership</span>
-        <h1 class="page-title">On the ground, in 2026.</h1>
-        <div class="timeline-item">
-          <p class="timeline-date">2026</p>
-          <div>
-            <h3 class="timeline-heading">Team Member &mdash; Registration &amp; Security</h3>
-            <p class="timeline-org">PAMUN (Model United Nations)</p>
-            <p class="timeline-text">Managed delegate registration, verified credentials, and coordinated on-site security for the event.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <p class="timeline-date">2026</p>
-          <div>
-            <h3 class="timeline-heading">Team Member &mdash; Registrations</h3>
-            <p class="timeline-org">IEEE</p>
-            <p class="timeline-text">Handled member onboarding, participant database management, and technical support for workshops and campus events.</p>
-          </div>
-        </div>
-      </div>
+    <section id="experience" class="section reveal">
+      <h2 class="sec-title"><span class="mono">05.</span> Experience</h2>
+      <div class="timeline" id="exp-list"></div>
+      <div class="goals"><h3 class="mono">// goals</h3><ul id="goals"></ul></div>
     </section>
 
-    <!-- PAGE 5: EDUCATION -->
-    <section id="education" class="page-view">
-      <div class="container content-wrapper">
-        <span class="kicker">Education</span>
-        <h1 class="page-title">Academic path.</h1>
-        <div class="timeline-item">
-          <p class="timeline-date">10/2025 &ndash; Present</p>
-          <div>
-            <h3 class="timeline-heading">Bachelor of Data Science (3rd Semester)</h3>
-            <p class="timeline-org">Pak-Austria Fachhochschule IAST</p>
-          
-          </div>
-        </div>
-        <div class="timeline-item">
-          <p class="timeline-date">08/2023 &ndash; 08/2025</p>
-          <div>
-            <h3 class="timeline-heading">HSSC (FSc Pre-Engineering)</h3>
-            <p class="timeline-org">Abbottabad Public School and College</p>
-          
-          </div>
-        </div>
-        <div class="timeline-item">
-          <p class="timeline-date">03/2021 &ndash; 03/2023</p>
-          <div>
-            <h3 class="timeline-heading">SSC (Matriculation)</h3>
-            <p class="timeline-org">Abbottabad Public School and College</p>
-           
-          </div>
-        </div>
+    <section id="contact" class="section reveal">
+      <h2 class="sec-title"><span class="mono">06.</span> Get In Touch</h2>
+      <div class="contact-grid">
+        <form id="contact-form" class="panel form" method="POST">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+          <button type="submit" class="btn" id="submit-btn">Send Message</button>
+          <p id="form-status" class="status" role="status"></p>
+        </form>
+        <aside class="panel info">
+          <h3>Direct Contact</h3>
+          <p>✉ <a id="c-email"></a></p>
+          <p>🐙 <a id="c-gh" target="_blank" rel="noopener"></a></p>
+          <p>💼 <a id="c-li" target="_blank" rel="noopener">LinkedIn</a></p>
+          <p>📍 <span id="c-loc"></span></p>
+          <button class="btn ghost" id="cv-btn-contact">⬇ Download CV (PDF)</button>
+        </aside>
       </div>
     </section>
   </main>
 
-  <footer>
-    &copy; 2026 Khawaja Anas Javed.
-  </footer>
+  <footer class="footer"><span class="mono">© <span id="year"></span> Khawaja Anas Javed · built with HTML, CSS &amp; JS</span></footer>
 
-  <script src="script.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="script.js"></script>
 </body>
 </html>
