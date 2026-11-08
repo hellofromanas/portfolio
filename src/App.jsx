@@ -6,8 +6,8 @@ import Background from './components/Background.jsx';
 import Labs from './components/Labs.jsx';
 
 const SECTIONS = [
-  ['home', 'Home'], ['about', 'About'], ['skills', 'Skills'], ['lab', 'AI Lab'],
-  ['projects', 'Projects'], ['experience', 'Experience'], ['contact', 'Contact'],
+  ['home', 'Home'], ['about', 'About'], ['skills', 'Skills'], ['projects', 'Projects'],
+  ['experience', 'Experience'], ['lab', 'AI Lab'], ['contact', 'Contact'],
 ];
 const IDS = SECTIONS.map((s) => s[0]);
 
@@ -29,12 +29,12 @@ function Nav({ active }) {
     <header className={`nav${solid ? ' solid' : ''}`}>
       <div className="nav-in">
         <a href="#home" className="brand" onClick={() => setOpen(false)}>
-          <span className="logo">KA</span><span className="brand-name">Khawaja Anas <em>Javed</em></span>
+          <span className="logo" aria-hidden="true">KAJ</span><span className="brand-name">Khawaja Anas <em>Javed</em></span>
         </a>
-        <button className="menu" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
+        <button className="menu" aria-label="Toggle menu" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen(!open)}>
           <span /><span /><span />
         </button>
-        <nav className={`links${open ? ' open' : ''}`}>
+        <nav id="site-nav" aria-label="Main" className={`links${open ? ' open' : ''}`}>
           {SECTIONS.map(([id, label]) => (
             <a key={id} href={`#${id}`} className={active === id ? 'active' : ''} onClick={() => setOpen(false)}>{label}</a>
           ))}
@@ -58,7 +58,12 @@ function Typed({ words }) {
     };
     tick(); return () => clearTimeout(timer);
   }, [words]);
-  return <span className="typed">{text}<i className="caret" /></span>;
+  return (
+    <>
+      <span className="sr-only">{words.join(", ")}</span>
+      <span className="typed" aria-hidden="true">{text}<i className="caret" /></span>
+    </>
+  );
 }
 
 function Section({ id, eyebrow, title, intro, children }) {
@@ -76,13 +81,13 @@ function Section({ id, eyebrow, title, intro, children }) {
 }
 
 function Hero() {
-  const stats = [['3', 'Client websites shipped'], ['2025', 'Started BS Data Science'], ['6', 'Core tools: Python · C++ · Power BI · RAG · Ollama · Claude Code']];
+  const stats = [['3', 'Client websites shipped'], ['4', 'Python, C++, Power BI & RAG repos'], ['2025', 'Started BS Data Science']];
   return (
     <section id="home" className="hero">
       <div className="wrap hero-grid">
         <div className="hero-copy">
           <p className="pill"><i /> Open to internships &amp; collaborations</p>
-          <h1>I turn data into insight and ideas into <span className="grad">working AI</span>.</h1>
+          <h1>Data science student building with <span className="grad">Python, Power BI and local AI</span>.</h1>
           <p className="role">I'm {D.name} — <Typed words={D.roles} /></p>
           <p className="lead">{D.summary}</p>
           <div className="cta">
@@ -98,8 +103,8 @@ function Hero() {
           <div className="photo">
             <div className="glow" />
             <img src="/profile.jpeg" alt={D.name} width="360" height="360" fetchPriority="high" />
-            <span className="tag t1">Python</span><span className="tag t2">C++</span>
-            <span className="tag t3">RAG</span><span className="tag t4">Power BI</span>
+            <span className="tag t1" aria-hidden="true">Python</span><span className="tag t2" aria-hidden="true">C++</span>
+            <span className="tag t3" aria-hidden="true">RAG</span><span className="tag t4" aria-hidden="true">Power BI</span>
             <div className="card-mini"><b>{D.title}</b><span>Pak-Austria Fachhochschule</span></div>
           </div>
         </div>
@@ -111,7 +116,7 @@ function Hero() {
 
 function About() {
   return (
-    <Section id="about" eyebrow="About" title="Education & background" intro={D.summary}>
+    <Section id="about" eyebrow="About" title="Education & background" intro="I study BS Data Science at Pak-Austria Fachhochschule and build projects to practise what I learn.">
       <div className="timeline">
         {D.education.map((e) => (
           <div key={e.title} className="t-item">
@@ -131,9 +136,9 @@ function Skills() {
   return (
     <Section id="skills" eyebrow="Skills" title="Tools I work with" intro="A practical stack across programming, data, applied AI and the web.">
       <div className="skill-grid">
-        {D.skills.map((s) => (
+        {D.skills.filter((s) => !s.hidden).map((s) => (
           <div key={s.name} className="skill">
-            <div className="mono-ic">{mono(s.name)}</div>
+            <div className="mono-ic" aria-hidden="true">{mono(s.name)}</div>
             <div><h3>{s.name}</h3><p>{s.note}</p></div>
             <span className="grp">{s.group}</span>
           </div>
@@ -145,7 +150,7 @@ function Skills() {
 
 function Lab() {
   return (
-    <Section id="lab" eyebrow="AI & Data Lab" title="Ideas in motion" intro="Live visualisations of the concepts I study: neural networks, training, dashboards and retrieval-augmented generation.">
+    <Section id="lab" eyebrow="AI & Data Lab" title="Concept demos" intro="Illustrative animations of ideas I am studying: neural networks, training, dashboards and retrieval-augmented generation. They use simulated data. The Projects section has the real code.">
       <Labs />
     </Section>
   );
@@ -153,7 +158,7 @@ function Lab() {
 
 function Projects() {
   return (
-    <Section id="projects" eyebrow="Projects" title="Selected work" intro="Websites and software I've designed, built and deployed.">
+    <Section id="projects" eyebrow="Projects" title="Selected work" intro="Data and AI projects, a C++ application, and websites I have built for clients.">
       <div className="cards">
         {D.projects.map((p) => (
           <article key={p.name} className="card">
@@ -173,7 +178,7 @@ function Projects() {
 
 function Experience() {
   return (
-    <Section id="experience" eyebrow="Experience" title="Roles & leadership">
+    <Section id="experience" eyebrow="Experience" title="Experience & volunteering">
       <div className="timeline">
         {D.experience.map((x) => (
           <div key={x.org + x.period} className="t-item">
@@ -208,9 +213,10 @@ function Contact() {
       <div className="contact-grid">
         <form className="form" onSubmit={submit}>
           <label htmlFor="name">Full name</label>
-          <input id="name" name="name" placeholder="Your name" required />
+          <input id="name" name="name" autoComplete="name" placeholder="Your name" required />
           <label htmlFor="email">Email address</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <input id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
+          <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" aria-hidden="true" className="hp" />
           <label htmlFor="message">Message</label>
           <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required />
           <button className="btn" type="submit" disabled={state.s === 'sending'}>{state.s === 'sending' ? 'Sending…' : 'Send message'}</button>
@@ -223,6 +229,7 @@ function Contact() {
           <p><span>LinkedIn</span><a href={D.linkedin} target="_blank" rel="noopener noreferrer">hellofromanas</a></p>
           <p><span>Location</span>{D.location}</p>
           <CVButton className="btn ghost">Download CV (PDF)</CVButton>
+          <p className="alt-link"><a href="/cv.pdf" target="_blank" rel="noopener noreferrer">Or open the PDF directly</a></p>
         </aside>
       </div>
     </Section>
@@ -236,7 +243,7 @@ export default function App() {
       <Background />
       <Nav active={active} />
       <main>
-        <Hero /><About /><Skills /><Lab /><Projects /><Experience /><Contact />
+        <Hero /><About /><Skills /><Projects /><Experience /><Lab /><Contact />
       </main>
       <footer className="footer">
         <p>© {new Date().getFullYear()} {D.name} · Built with React</p>

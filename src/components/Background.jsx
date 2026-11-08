@@ -13,6 +13,7 @@ export default function Background() {
     const resize = () => { W = cv.width = innerWidth; H = cv.height = innerHeight; };
     addEventListener('resize', resize); resize();
     const frame = () => {
+      if (document.hidden) { raf = requestAnimationFrame(frame); return; }
       ctx.clearRect(0, 0, W, H);
       nodes.forEach((n) => {
         if (!still) { n.x += n.vx; n.y += n.vy; }
@@ -35,9 +36,9 @@ export default function Background() {
         const p = pulses[k]; p.t += 0.02;
         if (p.t >= 1) { pulses.splice(k, 1); continue; }
         ctx.beginPath(); ctx.arc(p.a.px + (p.b.px - p.a.px) * p.t, p.a.py + (p.b.py - p.a.py) * p.t, 2.6, 0, 6.283);
-        ctx.fillStyle = '#34d399'; ctx.shadowColor = '#34d399'; ctx.shadowBlur = 8; ctx.fill(); ctx.shadowBlur = 0;
+        ctx.fillStyle = '#34d399'; ctx.fill();
       }
-      raf = requestAnimationFrame(frame);
+      if (!still) raf = requestAnimationFrame(frame);
     };
     frame();
     return () => { cancelAnimationFrame(raf); removeEventListener('resize', resize); };

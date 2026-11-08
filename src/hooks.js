@@ -22,7 +22,12 @@ export function useCanvasLoop(draw) {
     const ctx = cv.getContext('2d'); let vis = false, t = 0, raf;
     const io = new IntersectionObserver(([e]) => { vis = e.isIntersecting; }, { threshold: 0.1 });
     io.observe(cv);
-    const frame = () => { if (vis || (reduceMotion() && t === 0)) { t++; draw(ctx, cv.width, cv.height, t); } raf = requestAnimationFrame(frame); };
+    const still = reduceMotion();
+    const frame = () => {
+      if (still) { draw(ctx, cv.width, cv.height, 1); return; } // one static frame, no loop
+      if (vis && !document.hidden) { t++; draw(ctx, cv.width, cv.height, t); }
+      raf = requestAnimationFrame(frame);
+    };
     frame();
     return () => { cancelAnimationFrame(raf); io.disconnect(); };
   }, [draw]);

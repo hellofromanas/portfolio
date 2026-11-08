@@ -117,9 +117,9 @@ function drawRag(ctx, W, H, t) {
   }
 }
 
-function Cv({ draw }) {
+function Cv({ draw, label }) {
   const ref = useCanvasLoop(draw);
-  return <canvas ref={ref} width="520" height="300" />;
+  return <canvas ref={ref} width="520" height="300" role="img" aria-label={label} />;
 }
 
 const script = [
@@ -127,7 +127,6 @@ const script = [
   ['RAG retrieves relevant documents and feeds them to an LLM so answers stay grounded in your data.\n\n', ''],
   ['$ ', 'p'], ['python train.py --epochs 50\n', ''],
   ['epoch 10/50  loss=0.842  acc=0.71\nepoch 25/50  loss=0.391  acc=0.86\nepoch 50/50  loss=0.147  acc=0.95\n\n', ''],
-  ['$ ', 'p'], ['claude "build my portfolio"\n', ''], ['✔ analysing → ✔ coding → ✔ shipping\n', ''],
 ];
 
 function Terminal() {
@@ -157,17 +156,17 @@ function Terminal() {
     return () => { dead = true; io.disconnect(); };
   }, []);
   const all = cur ? [...done, cur] : done;
-  return <pre className="term" ref={ref} aria-label="Animated terminal">{all.map(([t, c], i) => <span key={i} className={c}>{t}</span>)}</pre>;
+  return <pre className="term" ref={ref} aria-hidden="true">{all.map(([t, c], i) => <span key={i} className={c}>{t}</span>)}</pre>;
 }
 
 export default function Labs() {
   return (
     <div className="lab-grid">
-      <Panel title="neural_net.forward()" caption="A feed-forward network: signals flow input → hidden → output."><Cv draw={drawNN} /></Panel>
-      <Panel title="train.py — loss curve" caption="Gradient descent: loss falls as epochs progress."><Cv draw={drawLoss} /></Panel>
-      <Panel title="dashboard.pbix" caption="Streaming data visualised like a Power BI dashboard."><Cv draw={drawDash} /></Panel>
-      <Panel title="rag_pipeline.py" caption="RAG: Query → Embed → Vector search → LLM (Ollama) → Answer."><Cv draw={drawRag} /></Panel>
-      <article className="panel wide"><header><span className="mono">~/ollama — terminal</span><i className="pulse" /></header><Terminal /></article>
+      <Panel title="Neural network (diagram)" caption="A feed-forward network: signals flow input → hidden → output."><Cv draw={drawNN} label="Animated diagram of a feed-forward neural network with four layers" /></Panel>
+      <Panel title="Loss curve (simulated)" caption="Gradient descent: loss falls as epochs progress. Illustrative curve, not a real training run."><Cv draw={drawLoss} label="Animated line chart of a training loss curve falling over epochs (simulated)" /></Panel>
+      <Panel title="Dashboard (simulated data)" caption="Random streaming data drawn like a Power BI dashboard. See the Sales Dashboard project for the real model."><Cv draw={drawDash} label="Animated bar, line and donut charts of simulated sales data" /></Panel>
+      <Panel title="RAG pipeline (diagram)" caption="Query → Embed → Vector search → LLM (Ollama) → Answer. The working code is in the rag-ollama-local project."><Cv draw={drawRag} label="Animated diagram of a RAG pipeline: query, embed, vector database, Ollama LLM, answer" /></Panel>
+      <article className="panel wide"><header><span className="mono">Terminal (scripted example)</span><i className="pulse" /></header><Terminal /></article>
     </div>
   );
 }

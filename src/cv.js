@@ -1,8 +1,7 @@
 import D from './data.js';
 
 // Builds the CV from data.js on every call, so it always reflects the latest content.
-export async function downloadCV() {
-  const { jsPDF } = await import('jspdf');
+export function buildDoc(jsPDF) {
   const doc = new jsPDF({ unit: 'pt', format: 'a4' });
   const M = 48, PW = doc.internal.pageSize.getWidth(), PH = doc.internal.pageSize.getHeight(), CW = PW - M * 2;
   let y = M;
@@ -27,10 +26,16 @@ export async function downloadCV() {
   Object.entries(groups).forEach(([g, l]) => text(`${g}: ${l.join(', ')}`, 10, 'normal', ink, 0, 2));
   section('Projects');
   D.projects.forEach((p) => { text(`${p.name}  (${p.tag})`, 10.5, 'bold', dark, 0, 0); text(p.desc, 9.5, 'normal', ink, 10, 0); text([p.live, p.link].filter(Boolean).join('  |  '), 9, 'normal', [37, 99, 235], 10, 6); });
-  section('Experience & Leadership');
+  section('Experience & Volunteering');
   D.experience.forEach((x) => { text(`${x.role} — ${x.org}`, 10.5, 'bold', dark, 0, 0); text(x.period, 9, 'normal', mute, 0, 2); text(x.desc, 9.5, 'normal', ink, 10, 6); });
   section('Goals'); D.goals.forEach((g) => text('•  ' + g, 9.5, 'normal', ink, 10, 1));
   const stamp = new Date().toISOString().slice(0, 10);
   doc.setFontSize(8); doc.setTextColor(148, 163, 184); doc.text(`Generated from live portfolio on ${stamp}`, M, PH - 24);
-  doc.save(`${D.name.replace(/\s+/g, '_')}_CV_${stamp}.pdf`);
+  return { doc, filename: `${D.name.replace(/\s+/g, '_')}_CV_${stamp}.pdf` };
+}
+
+export async function downloadCV() {
+  const { jsPDF } = await import('jspdf');
+  const { doc, filename } = buildDoc(jsPDF);
+  doc.save(filename);
 }
