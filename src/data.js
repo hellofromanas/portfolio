@@ -31,10 +31,13 @@ export const D = {
     { name: "Canva", icon: "🎨", group: "Tools", note: "Visual design" }
   ],
   projects: [
+    { name: "Local RAG with Ollama", tag: "Python · RAG · Ollama", desc: "Retrieval-Augmented Generation pipeline that runs fully locally: chunking, embeddings, vector search and cited answers from a local LLM.", link: "https://github.com/hellofromanas/rag-ollama-local" },
+    { name: "Student Performance EDA", tag: "Python · pandas · Matplotlib", desc: "End-to-end analysis workflow on a synthetic dataset: cleaning, visualisation and a regression model written with NumPy.", link: "https://github.com/hellofromanas/python-student-performance-eda" },
+    { name: "Sales Dashboard (Power BI)", tag: "Power BI · DAX · Power Query", desc: "Star-schema data model, DAX measures and dashboard specification on synthetic sales data, validated against Python.", link: "https://github.com/hellofromanas/powerbi-sales-dashboard" },
+    { name: "Student Management System", tag: "C++17 · OOP", desc: "Console application for student records and grades with ranking, statistics, CSV storage and unit tests.", link: "https://github.com/hellofromanas/student-management-cpp" },
     { name: "Bilal Sports", tag: "Client website · HTML/CSS/JS", desc: "Storefront website for a sports gear and sportswear shop in Havelian, deployed on Vercel.", link: "https://github.com/hellofromanas/Bilal-Sports", live: "https://bilalsports.vercel.app/" },
     { name: "Dr. Khalil Aesthetic Clinic", tag: "Client website · HTML/CSS/JS", desc: "Website built for an aesthetic clinic, deployed on Vercel.", live: "https://khalilaesthetics.vercel.app/" },
     { name: "Noor Al Hidayah Quran Academy", tag: "Client website · HTML/CSS/JS", desc: "Website for an online Quran academy, deployed on Netlify.", link: "https://github.com/hellofromanas/noor-al-hidayah", live: "https://noor-al-hidayah.netlify.app/" },
-    { name: "C++ Student Management System", tag: "C++ · OOP", desc: "Structured CLI application for managing student records, grades and simple analytics.", link: "https://github.com/hellofromanas" },
   ],
   experience: [
     { period: "2025 – Present", role: "Freelance Web Developer", org: "Client Projects", desc: "Designed, built and deployed responsive websites: Dr. Khalil Aesthetic Clinic (khalilaesthetics.vercel.app), Bilal Sports (bilalsports.vercel.app) and Noor Al Hidayah Quran Academy (noor-al-hidayah.netlify.app)." },
