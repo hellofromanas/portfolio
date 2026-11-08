@@ -4,7 +4,6 @@ import { downloadCV } from './cv.js';
 import { useReveal, useScrollSpy, reduceMotion } from './hooks.js';
 import Background from './components/Background.jsx';
 import Labs from './components/Labs.jsx';
-import LikeButton from './components/LikeButton.jsx';
 
 const SECTIONS = [
   ['home', 'Home'], ['about', 'About'], ['skills', 'Skills'], ['lab', 'AI Lab'],
@@ -240,7 +239,6 @@ export default function App() {
         <Hero /><About /><Skills /><Lab /><Projects /><Experience /><Contact />
       </main>
       <footer className="footer">
-        <LikeButton />
         <p>© {new Date().getFullYear()} {D.name} · Built with React</p>
       </footer>
     </>
