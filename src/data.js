@@ -1,5 +1,5 @@
-// SINGLE SOURCE OF TRUTH — edit this file and both the website and the downloadable CV update.
-window.PORTFOLIO = {
+// SINGLE SOURCE OF TRUTH: edit this file and both the site and the downloadable CV update.
+export const D = {
   name: "Khawaja Anas Javed",
   title: "Data Science Undergraduate",
   roles: ["Data Science Student", "Python & C++ Developer", "Power BI Analyst", "RAG & Local LLM Builder", "Claude Code Power User"],
@@ -44,3 +44,4 @@ window.PORTFOLIO = {
   ],
   goals: ["Build a strong C++ & Python project portfolio", "Master data structures and algorithms", "Ship RAG applications powered by local LLMs", "Contribute to open-source projects"]
 };
+export default D;
