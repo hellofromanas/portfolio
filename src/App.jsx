@@ -162,7 +162,7 @@ function Projects() {
             <p>{p.desc}</p>
             <div className="card-links">
               {p.live && <a href={p.live} target="_blank" rel="noopener noreferrer">Live site ↗</a>}
-              <a href={p.link} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              {p.link && <a href={p.link} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
             </div>
           </article>
         ))}

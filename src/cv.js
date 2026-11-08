@@ -18,7 +18,7 @@ export async function downloadCV() {
   text(D.name, 24, 'bold', dark, 0, 2);
   text(D.title, 12, 'normal', [71, 85, 105], 0, 2);
   text([D.email, D.github.replace('https://', ''), D.linkedin.replace('https://', ''), D.location].join('  |  '), 9, 'normal', [71, 85, 105], 0, 4);
-  text(`Date of birth: ${D.dob}  |  Nationality: ${D.nationality}`, 9, 'normal', [71, 85, 105], 0, 2);
+  text(`Nationality: ${D.nationality}`, 9, 'normal', [71, 85, 105], 0, 2);
   section('Profile'); text(D.summary, 10, 'normal', ink);
   section('Education');
   D.education.forEach((e) => { text(`${e.title} — ${e.place}`, 10.5, 'bold', dark, 0, 0); text(`${e.period}  |  ${e.level}`, 9, 'normal', mute, 0, 2); e.points.forEach((p) => text('•  ' + p, 9.5, 'normal', ink, 10, 1)); y += 6; });
@@ -26,7 +26,7 @@ export async function downloadCV() {
   const groups = {}; D.skills.forEach((s) => (groups[s.group] = groups[s.group] || []).push(s.name));
   Object.entries(groups).forEach(([g, l]) => text(`${g}: ${l.join(', ')}`, 10, 'normal', ink, 0, 2));
   section('Projects');
-  D.projects.forEach((p) => { text(`${p.name}  (${p.tag})`, 10.5, 'bold', dark, 0, 0); text(p.desc, 9.5, 'normal', ink, 10, 0); text((p.live ? p.live + '  |  ' : '') + p.link, 9, 'normal', [37, 99, 235], 10, 6); });
+  D.projects.forEach((p) => { text(`${p.name}  (${p.tag})`, 10.5, 'bold', dark, 0, 0); text(p.desc, 9.5, 'normal', ink, 10, 0); text([p.live, p.link].filter(Boolean).join('  |  '), 9, 'normal', [37, 99, 235], 10, 6); });
   section('Experience & Leadership');
   D.experience.forEach((x) => { text(`${x.role} — ${x.org}`, 10.5, 'bold', dark, 0, 0); text(x.period, 9, 'normal', mute, 0, 2); text(x.desc, 9.5, 'normal', ink, 10, 6); });
   section('Goals'); D.goals.forEach((g) => text('•  ' + g, 9.5, 'normal', ink, 10, 1));

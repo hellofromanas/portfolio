@@ -9,7 +9,6 @@ export const D = {
   github: "https://github.com/hellofromanas",
   linkedin: "https://www.linkedin.com/in/hellofromanas",
   formspree: "https://formspree.io/f/xzdarboq",
-  dob: "25/07/2006",
   nationality: "Pakistani",
   education: [
     { period: "29/10/2025 – Present", title: "Bachelors of Data Science", place: "Pak-Austria Fachhochschule IAST, Haripur", level: "EQF level 6",
@@ -33,7 +32,7 @@ export const D = {
   ],
   projects: [
     { name: "Bilal Sports", tag: "Client website · HTML/CSS/JS", desc: "Storefront website for a sports gear and sportswear shop in Havelian, deployed on Vercel.", link: "https://github.com/hellofromanas/Bilal-Sports", live: "https://bilalsports.vercel.app/" },
-    { name: "Dr. Khalil Aesthetic Clinic", tag: "Client website · HTML/CSS/JS", desc: "Website built for an aesthetic clinic, deployed on Vercel.", link: "https://github.com/hellofromanas/khalil-ahmed", live: "https://khalilaesthetics.vercel.app/" },
+    { name: "Dr. Khalil Aesthetic Clinic", tag: "Client website · HTML/CSS/JS", desc: "Website built for an aesthetic clinic, deployed on Vercel.", live: "https://khalilaesthetics.vercel.app/" },
     { name: "Noor Al Hidayah Quran Academy", tag: "Client website · HTML/CSS/JS", desc: "Website for an online Quran academy, deployed on Netlify.", link: "https://github.com/hellofromanas/noor-al-hidayah", live: "https://noor-al-hidayah.netlify.app/" },
     { name: "C++ Student Management System", tag: "C++ · OOP", desc: "Structured CLI application for managing student records, grades and simple analytics.", link: "https://github.com/hellofromanas" },
   ],
