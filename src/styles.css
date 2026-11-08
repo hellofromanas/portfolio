@@ -182,3 +182,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .card-mini { white-space: normal; text-align: center; width: max-content; max-width: 92%; }
 }
 @media (max-width: 560px) { .stats dd { font-size: .76rem; } }
+
+/* project screenshots + certificates */
+.shot { margin: -6px -6px 16px; position: relative; }
+.shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: contain; border-radius: 12px; border: 1px solid var(--line); background: #0b1220; }
+.shot figcaption { position: absolute; left: 10px; bottom: 10px; padding: 3px 10px; border-radius: 99px; font-size: .72rem; background: rgba(5, 8, 15, .82); border: 1px solid var(--line); color: var(--muted); }
+.certs { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.cert { display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; color: var(--text); transition: border-color .2s, transform .2s; }
+.cert:hover { border-color: var(--green); transform: translateY(-3px); text-decoration: none; }
+.cert-ic { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: rgba(52, 211, 153, .15); color: var(--green); font-weight: 700; }
+.cert b { display: block; font-size: .98rem; }
+.cert small { display: block; color: var(--muted); font-size: .78rem; margin-top: 2px; }

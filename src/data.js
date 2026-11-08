@@ -31,18 +31,22 @@ export const D = {
     { name: "Canva", icon: "🎨", group: "Tools", note: "Visual design", hidden: true }
   ],
   projects: [
-    { name: "Local RAG with Ollama", tag: "Python · RAG · Ollama", desc: "Retrieval-Augmented Generation pipeline that runs fully locally: chunking, embeddings, vector search and cited answers from a local LLM.", link: "https://github.com/hellofromanas/rag-ollama-local" },
-    { name: "Student Performance EDA", tag: "Python · pandas · Matplotlib", desc: "End-to-end analysis workflow on a synthetic dataset: cleaning, visualization and a regression model written with NumPy.", link: "https://github.com/hellofromanas/python-student-performance-eda" },
-    { name: "Sales Dashboard (Power BI)", tag: "Power BI · DAX · Power Query", desc: "Star-schema data model, DAX measures and dashboard specification on synthetic sales data, validated against Python.", link: "https://github.com/hellofromanas/powerbi-sales-dashboard" },
-    { name: "Student Management System", tag: "C++17 · OOP", desc: "Console application for student records and grades with ranking, statistics, CSV storage and unit tests.", link: "https://github.com/hellofromanas/student-management-cpp" },
-    { name: "Bilal Sports", tag: "Client website · HTML/CSS/JS", desc: "Storefront website for a sports gear and sportswear shop in Havelian, deployed on Vercel.", link: "https://github.com/hellofromanas/Bilal-Sports", live: "https://bilalsports.vercel.app/" },
-    { name: "Dr. Khalil Aesthetic Clinic", tag: "Client website · HTML/CSS/JS", desc: "Website built for an aesthetic clinic, deployed on Vercel.", live: "https://khalilaesthetics.vercel.app/" },
-    { name: "Noor Al Hidayah Quran Academy", tag: "Client website · HTML/CSS/JS", desc: "Website for an online Quran academy, deployed on Netlify.", link: "https://github.com/hellofromanas/noor-al-hidayah", live: "https://noor-al-hidayah.netlify.app/" },
+    { name: "Local RAG with Ollama", tag: "Python · RAG · Ollama", desc: "Retrieval-Augmented Generation pipeline that runs fully locally: chunking, embeddings, vector search and cited answers from a local LLM.", link: "https://github.com/hellofromanas/rag-ollama-local", image: "/screens/rag.jpg", imageAlt: "Output of the RAG project: a cited answer and an I-do-not-know refusal" },
+    { name: "Student Performance EDA", tag: "Python · pandas · real UCI data", desc: "Analysis of the real UCI Student Performance dataset (395 students): validation, visualization and a NumPy regression comparing models with and without earlier grades.", link: "https://github.com/hellofromanas/python-student-performance-eda", image: "/screens/eda.jpg", imageAlt: "Charts of absences and past failures against final grade" },
+    { name: "Sales Dashboard (Power BI)", tag: "Power BI · DAX · Power Query", desc: "Star-schema data model, DAX measures and dashboard specification on synthetic sales data, validated against Python.", link: "https://github.com/hellofromanas/powerbi-sales-dashboard", image: "/screens/powerbi.jpg", imageAlt: "Dashboard layout preview drawn with Matplotlib", imageNote: "Layout preview (not a Power BI screenshot)" },
+    { name: "Student Management System", tag: "C++17 · OOP", desc: "Console application for student records and grades with ranking, statistics, CSV storage and unit tests.", link: "https://github.com/hellofromanas/student-management-cpp", image: "/screens/cpp.jpg", imageAlt: "Console output of the student management system showing a ranking and statistics" },
+    { name: "Bilal Sports", tag: "Client website · HTML/CSS/JS", desc: "Storefront website for a sports gear and sportswear shop in Havelian, deployed on Vercel.", link: "https://github.com/hellofromanas/Bilal-Sports", live: "https://bilalsports.vercel.app/", image: "/screens/bilal.jpg", imageAlt: "Bilal Sports website home page" },
+    { name: "Dr. Khalil Aesthetic Clinic", tag: "Client website · HTML/CSS/JS", desc: "Website built for an aesthetic clinic, deployed on Vercel.", live: "https://khalilaesthetics.vercel.app/", image: "/screens/khalil.jpg", imageAlt: "Dr. Khalil Aesthetic Clinic website home page" },
+    { name: "Noor Al Hidayah Quran Academy", tag: "Client website · HTML/CSS/JS", desc: "Website for an online Quran academy, deployed on Netlify.", link: "https://github.com/hellofromanas/noor-al-hidayah", live: "https://noor-al-hidayah.netlify.app/", image: "/screens/noor.jpg", imageAlt: "Noor Al Hidayah Quran Academy website home page" },
   ],
   experience: [
     { period: "2025 – Present", role: "Freelance Web Developer", org: "Client Projects", desc: "Built and deployed responsive websites: Dr. Khalil Aesthetic Clinic (khalilaesthetics.vercel.app), Bilal Sports (bilalsports.vercel.app) and Noor Al Hidayah Quran Academy (noor-al-hidayah.netlify.app)." },
-    { period: "2024 – Present", role: "Team Member — Registration & Security", org: "PAMUN", desc: "Managed delegate registration workflows, verified participant credentials and coordinated on-site security for the Pak-Austria Model United Nations." },
+    { period: "Dec 2025 – Jan 2026", role: "Team Member — Registration & Security", org: "PAMUN", desc: "Managed delegate registration workflows, verified participant credentials and coordinated on-site security for the Pak-Austria Model United Nations." },
     { period: "2023 – 2024", role: "Team Member — Registrations", org: "IEEE", desc: "Facilitated member onboarding, managed participant databases and supported workshops and campus events." }
+  ],
+  certifications: [
+    { title: "Claude 101", issuer: "Anthropic", file: "/certificates/claude-101.pdf" },
+    { title: "AI Fluency: Framework & Foundations", issuer: "Anthropic", file: "/certificates/ai-fluency-framework-foundations.pdf" }
   ],
   goals: ["Build a strong C++ & Python project portfolio", "Master data structures and algorithms", "Ship RAG applications powered by local LLMs", "Contribute to open-source projects"]
 };

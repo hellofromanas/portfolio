@@ -21,6 +21,8 @@ export function buildDoc(jsPDF) {
   section('Profile'); text(D.summary, 10, 'normal', ink);
   section('Education');
   D.education.forEach((e) => { text(`${e.title} — ${e.place}`, 10.5, 'bold', dark, 0, 0); text(`${e.period}  |  ${e.level}`, 9, 'normal', mute, 0, 2); e.points.forEach((p) => text('•  ' + p, 9.5, 'normal', ink, 10, 1)); y += 6; });
+  section('Certificates');
+  D.certifications.forEach((c) => text(`${c.title} — ${c.issuer}`, 10, 'normal', ink, 0, 2));
   section('Skills');
   const groups = {}; D.skills.forEach((s) => (groups[s.group] = groups[s.group] || []).push(s.name));
   Object.entries(groups).forEach(([g, l]) => text(`${g}: ${l.join(', ')}`, 10, 'normal', ink, 0, 2));

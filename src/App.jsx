@@ -162,6 +162,12 @@ function Projects() {
       <div className="cards">
         {D.projects.map((p) => (
           <article key={p.name} className="card">
+            {p.image && (
+              <figure className="shot">
+                <img src={p.image} alt={p.imageAlt} width="960" height="600" loading="lazy" decoding="async" />
+                {p.imageNote && <figcaption>{p.imageNote}</figcaption>}
+              </figure>
+            )}
             <span className="tag-s">{p.tag}</span>
             <h3>{p.name}</h3>
             <p>{p.desc}</p>
@@ -187,6 +193,15 @@ function Experience() {
             <div className="org">{x.role}</div>
             <p>{x.desc}</p>
           </div>
+        ))}
+      </div>
+      <h3 className="sub">Certificates</h3>
+      <div className="certs">
+        {D.certifications.map((c) => (
+          <a key={c.title} className="cert" href={c.file} target="_blank" rel="noopener noreferrer">
+            <span className="cert-ic" aria-hidden="true">✓</span>
+            <span><b>{c.title}</b><small>{c.issuer} · certificate of completion · view PDF ↗</small></span>
+          </a>
         ))}
       </div>
       <h3 className="sub">Goals</h3>
